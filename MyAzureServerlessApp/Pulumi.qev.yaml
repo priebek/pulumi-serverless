@@ -1,0 +1,6 @@
+config:
+  MyAzureServerlessApp:appPath: ./app
+  MyAzureServerlessApp:errorDocument: error.html
+  MyAzureServerlessApp:indexDocument: index.html
+  MyAzureServerlessApp:sitePath: ./www
+  azure-native:location: westeurope

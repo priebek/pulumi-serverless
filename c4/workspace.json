@@ -1,0 +1,368 @@
+{
+  "configuration" : {
+    "scope" : "SoftwareSystem"
+  },
+  "description" : "Description",
+  "documentation" : { },
+  "id" : 1,
+  "lastModifiedAgent" : "structurizr-ui",
+  "lastModifiedDate" : "2025-05-18T11:48:42Z",
+  "model" : {
+    "people" : [ {
+      "id" : "1",
+      "location" : "Unspecified",
+      "name" : "User",
+      "properties" : {
+        "structurizr.dsl.identifier" : "u"
+      },
+      "relationships" : [ {
+        "description" : "Uses",
+        "destinationId" : "3",
+        "id" : "12",
+        "sourceId" : "1",
+        "tags" : "Relationship"
+      }, {
+        "description" : "Uses",
+        "destinationId" : "2",
+        "id" : "13",
+        "linkedRelationshipId" : "12",
+        "sourceId" : "1"
+      }, {
+        "description" : "Uses",
+        "destinationId" : "4",
+        "id" : "14",
+        "sourceId" : "1",
+        "tags" : "Relationship"
+      } ],
+      "tags" : "Element,Person"
+    } ],
+    "softwareSystems" : [ {
+      "containers" : [ {
+        "documentation" : { },
+        "group" : "Frontend",
+        "id" : "3",
+        "name" : "Web Application",
+        "properties" : {
+          "structurizr.dsl.identifier" : "ss.web"
+        },
+        "relationships" : [ {
+          "description" : "Uses",
+          "destinationId" : "5",
+          "id" : "15",
+          "sourceId" : "3",
+          "tags" : "Relationship"
+        } ],
+        "tags" : "Element,Container"
+      }, {
+        "documentation" : { },
+        "group" : "Frontend",
+        "id" : "4",
+        "name" : "Mobile Application",
+        "properties" : {
+          "structurizr.dsl.identifier" : "ss.mobile"
+        },
+        "relationships" : [ {
+          "description" : "Uses",
+          "destinationId" : "5",
+          "id" : "16",
+          "sourceId" : "4",
+          "tags" : "Relationship"
+        } ],
+        "tags" : "Element,Container,Mobile"
+      }, {
+        "description" : "Http triggered functions. Handle frontend users requests. CRUD submission, search and score",
+        "documentation" : { },
+        "group" : "Backend",
+        "id" : "5",
+        "name" : "API",
+        "properties" : {
+          "structurizr.dsl.identifier" : "ss.af_http"
+        },
+        "relationships" : [ {
+          "description" : "Write",
+          "destinationId" : "10",
+          "id" : "17",
+          "sourceId" : "5",
+          "tags" : "Relationship"
+        }, {
+          "description" : "Uses",
+          "destinationId" : "9",
+          "id" : "18",
+          "sourceId" : "5",
+          "tags" : "Relationship"
+        }, {
+          "description" : "Read",
+          "destinationId" : "7",
+          "id" : "19",
+          "sourceId" : "5",
+          "tags" : "Relationship"
+        }, {
+          "description" : "Read/Write",
+          "destinationId" : "8",
+          "id" : "20",
+          "sourceId" : "5",
+          "tags" : "Relationship"
+        }, {
+          "description" : "Read",
+          "destinationId" : "11",
+          "id" : "21",
+          "sourceId" : "5",
+          "tags" : "Relationship"
+        } ],
+        "tags" : "Element,Container",
+        "technology" : "Azure Functions"
+      }, {
+        "description" : "Queue triggered functions",
+        "documentation" : { },
+        "group" : "Backend",
+        "id" : "6",
+        "name" : "Background Service",
+        "properties" : {
+          "structurizr.dsl.identifier" : "ss.af_event"
+        },
+        "relationships" : [ {
+          "description" : "Read",
+          "destinationId" : "10",
+          "id" : "22",
+          "sourceId" : "6",
+          "tags" : "Relationship"
+        }, {
+          "description" : "Write",
+          "destinationId" : "7",
+          "id" : "23",
+          "sourceId" : "6",
+          "tags" : "Relationship"
+        }, {
+          "description" : "Write",
+          "destinationId" : "8",
+          "id" : "24",
+          "sourceId" : "6",
+          "tags" : "Relationship"
+        } ],
+        "tags" : "Element,Container",
+        "technology" : "Azure Functions"
+      }, {
+        "description" : "Stores user submissions and scores",
+        "documentation" : { },
+        "group" : "Backend",
+        "id" : "7",
+        "name" : "Database",
+        "properties" : {
+          "structurizr.dsl.identifier" : "ss.db"
+        },
+        "tags" : "Element,Container,Database",
+        "technology" : "Azure SQL Database"
+      }, {
+        "description" : "Stores user submission images",
+        "documentation" : { },
+        "group" : "Backend",
+        "id" : "8",
+        "name" : "Data Storage",
+        "properties" : {
+          "structurizr.dsl.identifier" : "ss.ds"
+        },
+        "tags" : "Element,Container,Database",
+        "technology" : "Azure Storage"
+      }, {
+        "description" : "Customer identity and access management",
+        "documentation" : { },
+        "group" : "Backend",
+        "id" : "9",
+        "name" : "User Authentication",
+        "properties" : {
+          "structurizr.dsl.identifier" : "ss.adb2c"
+        },
+        "tags" : "Element,Container",
+        "technology" : "Azure Active Directory B2C"
+      }, {
+        "description" : "Queue incoming submissions and scores",
+        "documentation" : { },
+        "group" : "Backend",
+        "id" : "10",
+        "name" : "Message queue system",
+        "properties" : {
+          "structurizr.dsl.identifier" : "ss.aqs"
+        },
+        "tags" : "Element,Container",
+        "technology" : "Azure Queue Storage"
+      }, {
+        "description" : "Store secrets and keys",
+        "documentation" : { },
+        "group" : "Backend",
+        "id" : "11",
+        "name" : "Key Vault",
+        "properties" : {
+          "structurizr.dsl.identifier" : "ss.akv"
+        },
+        "tags" : "Element,Container",
+        "technology" : "Azure Key Vault"
+      } ],
+      "documentation" : { },
+      "id" : "2",
+      "location" : "Unspecified",
+      "name" : "NPU System",
+      "properties" : {
+        "structurizr.dsl.identifier" : "ss"
+      },
+      "tags" : "Element,Software System"
+    } ]
+  },
+  "name" : "Name",
+  "properties" : {
+    "structurizr.dsl" : "d29ya3NwYWNlICJOYW1lIiAiRGVzY3JpcHRpb24iIHsKCiAgICAhaWRlbnRpZmllcnMgaGllcmFyY2hpY2FsCgogICAgbW9kZWwgewogICAgICAgIHUgPSBwZXJzb24gIlVzZXIiCiAgICAgICAgc3MgPSBzb2Z0d2FyZVN5c3RlbSAiTlBVIFN5c3RlbSIgewogICAgICAgICAgICBncm91cCAiRnJvbnRlbmQiIHsKICAgICAgICAgICAgICAgIHdlYiA9IGNvbnRhaW5lciAiV2ViIEFwcGxpY2F0aW9uIgogICAgICAgICAgICAgICAgbW9iaWxlID0gY29udGFpbmVyICJNb2JpbGUgQXBwbGljYXRpb24iIHsKICAgICAgICAgICAgICAgICAgICB0YWdzICJNb2JpbGUiCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0KICAgICAgICAgICAgZ3JvdXAgIkJhY2tlbmQiIHsKICAgICAgICAgICAgICAgIGFmX2h0dHAgPSBjb250YWluZXIgIkFQSSIgIkh0dHAgdHJpZ2dlcmVkIGZ1bmN0aW9ucy4gSGFuZGxlIGZyb250ZW5kIHVzZXJzIHJlcXVlc3RzLiBDUlVEIHN1Ym1pc3Npb24sIHNlYXJjaCBhbmQgc2NvcmUiICJBenVyZSBGdW5jdGlvbnMiCiAgICAgICAgICAgICAgICBhZl9ldmVudCA9IGNvbnRhaW5lciAiQmFja2dyb3VuZCBTZXJ2aWNlIiAiUXVldWUgdHJpZ2dlcmVkIGZ1bmN0aW9ucyIgIkF6dXJlIEZ1bmN0aW9ucyIKICAgICAgICAgICAgICAgIGRiID0gY29udGFpbmVyICJEYXRhYmFzZSIgIlN0b3JlcyB1c2VyIHN1Ym1pc3Npb25zIGFuZCBzY29yZXMiICJBenVyZSBTUUwgRGF0YWJhc2UiICJEYXRhYmFzZSIKICAgICAgICAgICAgICAgIGRzID0gY29udGFpbmVyICJEYXRhIFN0b3JhZ2UiICJTdG9yZXMgdXNlciBzdWJtaXNzaW9uIGltYWdlcyIgIkF6dXJlIFN0b3JhZ2UiICJEYXRhYmFzZSIKICAgICAgICAgICAgICAgIGFkYjJjID0gY29udGFpbmVyICJVc2VyIEF1dGhlbnRpY2F0aW9uIiAiQ3VzdG9tZXIgaWRlbnRpdHkgYW5kIGFjY2VzcyBtYW5hZ2VtZW50IiAiQXp1cmUgQWN0aXZlIERpcmVjdG9yeSBCMkMiCiAgICAgICAgICAgICAgICBhcXMgPSBjb250YWluZXIgIk1lc3NhZ2UgcXVldWUgc3lzdGVtIiAiUXVldWUgaW5jb21pbmcgc3VibWlzc2lvbnMgYW5kIHNjb3JlcyIgIkF6dXJlIFF1ZXVlIFN0b3JhZ2UiCiAgICAgICAgICAgICAgICBha3YgPSBjb250YWluZXIgIktleSBWYXVsdCIgIlN0b3JlIHNlY3JldHMgYW5kIGtleXMiICJBenVyZSBLZXkgVmF1bHQiCiAgICAgICAgICAgIH0KICAgICAgICB9CgogICAgICAgIHUgLT4gc3Mud2ViICJVc2VzIgogICAgICAgIHUgLT4gc3MubW9iaWxlICJVc2VzIgogICAgICAgIAogICAgICAgIHNzLndlYiAtPiBzcy5hZl9odHRwICJVc2VzIgogICAgICAgIHNzLm1vYmlsZSAtPiBzcy5hZl9odHRwICJVc2VzIgogICAgICAgIAogICAgICAgIHNzLmFmX2h0dHAgLT4gc3MuYXFzICJXcml0ZSIKICAgICAgICBzcy5hZl9odHRwIC0+IHNzLmFkYjJjICJVc2VzIgogICAgICAgIHNzLmFmX2h0dHAgLT4gc3MuZGIgIlJlYWQiCiAgICAgICAgc3MuYWZfaHR0cCAtPiBzcy5kcyAiUmVhZC9Xcml0ZSIKICAgICAgICBzcy5hZl9odHRwIC0+IHNzLmFrdiAiUmVhZCIKICAgICAgICAKICAgICAgICBzcy5hZl9ldmVudCAtPiBzcy5hcXMgIlJlYWQiCiAgICAgICAgc3MuYWZfZXZlbnQgLT4gc3MuZGIgIldyaXRlIgogICAgICAgIHNzLmFmX2V2ZW50IC0+IHNzLmRzICJXcml0ZSIKICAgIH0KCiAgICB2aWV3cyB7CiAgICAgICAgc3lzdGVtQ29udGV4dCBzcyAiQ29udGV4dCIgewogICAgICAgICAgICBpbmNsdWRlICoKICAgICAgICAgICAgYXV0b2xheW91dCBscgogICAgICAgIH0KCiAgICAgICAgY29udGFpbmVyIHNzICJDb250YWluZXIiIHsKICAgICAgICAgICAgaW5jbHVkZSAqCiAgICAgICAgICAgIGF1dG9sYXlvdXQgbHIKICAgICAgICB9CgogICAgICAgIHN0eWxlcyB7CiAgICAgICAgICAgIGVsZW1lbnQgIkVsZW1lbnQiIHsKICAgICAgICAgICAgICAgIGNvbG9yICNmZmZmZmYKICAgICAgICAgICAgfQogICAgICAgICAgICBlbGVtZW50ICJQZXJzb24iIHsKICAgICAgICAgICAgICAgIGJhY2tncm91bmQgIzE5OWI2NQogICAgICAgICAgICAgICAgc2hhcGUgcGVyc29uCiAgICAgICAgICAgIH0KICAgICAgICAgICAgZWxlbWVudCAiU29mdHdhcmUgU3lzdGVtIiB7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kICMxZWJhNzkKICAgICAgICAgICAgfQogICAgICAgICAgICBlbGVtZW50ICJDb250YWluZXIiIHsKICAgICAgICAgICAgICAgIGJhY2tncm91bmQgIzIzZDk4ZAogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsZW1lbnQgIkRhdGFiYXNlIiB7CiAgICAgICAgICAgICAgICBzaGFwZSBjeWxpbmRlcgogICAgICAgICAgICB9CiAgICAgICAgfQogICAgfQoKICAgIGNvbmZpZ3VyYXRpb24gewogICAgICAgIHNjb3BlIHNvZnR3YXJlc3lzdGVtCiAgICB9Cgp9"
+  },
+  "views" : {
+    "configuration" : {
+      "branding" : { },
+      "lastSavedView" : "Container",
+      "metadataSymbols" : "SquareBrackets",
+      "styles" : {
+        "elements" : [ {
+          "color" : "#ffffff",
+          "tag" : "Element"
+        }, {
+          "background" : "#199b65",
+          "shape" : "Person",
+          "tag" : "Person"
+        }, {
+          "background" : "#1eba79",
+          "tag" : "Software System"
+        }, {
+          "background" : "#23d98d",
+          "tag" : "Container"
+        }, {
+          "shape" : "Cylinder",
+          "tag" : "Database"
+        } ]
+      },
+      "terminology" : { }
+    },
+    "containerViews" : [ {
+      "automaticLayout" : {
+        "applied" : true,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "dimensions" : {
+        "height" : 3305,
+        "width" : 3090
+      },
+      "elements" : [ {
+        "id" : "1",
+        "x" : 199,
+        "y" : 1355
+      }, {
+        "id" : "3",
+        "x" : 899,
+        "y" : 1105
+      }, {
+        "id" : "4",
+        "x" : 899,
+        "y" : 1705
+      }, {
+        "id" : "5",
+        "x" : 1649,
+        "y" : 1405
+      }, {
+        "id" : "6",
+        "x" : 1649,
+        "y" : 2005
+      }, {
+        "id" : "7",
+        "x" : 2399,
+        "y" : 2605
+      }, {
+        "id" : "8",
+        "x" : 2399,
+        "y" : 2005
+      }, {
+        "id" : "9",
+        "x" : 2399,
+        "y" : 205
+      }, {
+        "id" : "10",
+        "x" : 2399,
+        "y" : 1405
+      }, {
+        "id" : "11",
+        "x" : 2399,
+        "y" : 805
+      } ],
+      "externalSoftwareSystemBoundariesVisible" : false,
+      "key" : "Container",
+      "order" : 2,
+      "relationships" : [ {
+        "id" : "12"
+      }, {
+        "id" : "14"
+      }, {
+        "id" : "15"
+      }, {
+        "id" : "16"
+      }, {
+        "id" : "17"
+      }, {
+        "id" : "18",
+        "vertices" : [ {
+          "x" : 2399,
+          "y" : 655
+        } ]
+      }, {
+        "id" : "19",
+        "vertices" : [ {
+          "x" : 2099,
+          "y" : 1855
+        }, {
+          "x" : 2399,
+          "y" : 2455
+        } ]
+      }, {
+        "id" : "20"
+      }, {
+        "id" : "21"
+      }, {
+        "id" : "22"
+      }, {
+        "id" : "23"
+      }, {
+        "id" : "24"
+      } ],
+      "softwareSystemId" : "2"
+    } ],
+    "systemContextViews" : [ {
+      "automaticLayout" : {
+        "applied" : true,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "dimensions" : {
+        "height" : 800,
+        "width" : 1550
+      },
+      "elements" : [ {
+        "id" : "1",
+        "x" : 200,
+        "y" : 165
+      }, {
+        "id" : "2",
+        "x" : 900,
+        "y" : 215
+      } ],
+      "enterpriseBoundaryVisible" : true,
+      "key" : "Context",
+      "order" : 1,
+      "relationships" : [ {
+        "id" : "13"
+      } ],
+      "softwareSystemId" : "2"
+    } ]
+  }
+}

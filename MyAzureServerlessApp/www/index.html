@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Serverless Example</title>
+    <script>
+        var config = {};
+
+        document.addEventListener("DOMContentLoaded", async () => {
+            const response = await fetch("config.json");
+            config = await response.json();
+            await getHealth();
+        });
+
+        async function getHealth() {
+            const response = await fetch(`${config.api}/health`);
+            const data = await response.json();
+            document.querySelector("#health").textContent = `${data}`;
+        }
+    </script>
+</head>
+<body>
+    <p>
+        <span id="health">Loading...</span>
+    </p>
+</body>
+</html>
