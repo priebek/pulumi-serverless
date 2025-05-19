@@ -8,7 +8,7 @@ Deploy
 `pulumi up`
 
 Destroy
-``pulumi destroy`
+`pulumi destroy`
 
 ### Troubleshoot
 
